@@ -6,10 +6,12 @@
 
 */
 
-const longestPalindromeSubsequence = function (s) {
+export const longestPalindromeSubsequence = function (s) {
   const n = s.length
 
-  const dp = new Array(n).fill(0).map(item => new Array(n).fill(0).map(item => 0))
+  const dp = new Array(n)
+    .fill(0)
+    .map((item) => new Array(n).fill(0).map((item) => 0))
 
   // fill predefined for single character
   for (let i = 0; i < n; i++) {
@@ -29,11 +31,3 @@ const longestPalindromeSubsequence = function (s) {
 
   return dp[0][n - 1]
 }
-
-const main = () => {
-  console.log(longestPalindromeSubsequence('bbbab')) // 4
-  console.log(longestPalindromeSubsequence('axbya')) // 3
-  console.log(longestPalindromeSubsequence('racexyzcxar')) // 7
-}
-
-main()

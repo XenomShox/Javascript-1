@@ -1,9 +1,9 @@
-function maximumNonAdjacentSum (nums) {
+function maximumNonAdjacentSum(nums) {
   /*
-         * Find the maximum non-adjacent sum of the integers in the nums input list
-         * :param nums: Array of Numbers
-         * :return: The maximum non-adjacent sum
-    */
+   * Find the maximum non-adjacent sum of the integers in the nums input list
+   * :param nums: Array of Numbers
+   * :return: The maximum non-adjacent sum
+   */
 
   if (nums.length < 0) return 0
 
@@ -19,11 +19,11 @@ function maximumNonAdjacentSum (nums) {
   return Math.max(maxExcluding, maxIncluding)
 }
 
-function main () {
-  console.log(maximumNonAdjacentSum([1, 2, 3]))
-  console.log(maximumNonAdjacentSum([1, 5, 3, 7, 2, 2, 6]))
-  console.log(maximumNonAdjacentSum([-1, -5, -3, -7, -2, -2, -6]))
-  console.log(maximumNonAdjacentSum([499, 500, -3, -7, -2, -2, -6]))
-}
+// Example
 
-main()
+// maximumNonAdjacentSum([1, 2, 3]))
+// maximumNonAdjacentSum([1, 5, 3, 7, 2, 2, 6]))
+// maximumNonAdjacentSum([-1, -5, -3, -7, -2, -2, -6]))
+// maximumNonAdjacentSum([499, 500, -3, -7, -2, -2, -6]))
+
+export { maximumNonAdjacentSum }

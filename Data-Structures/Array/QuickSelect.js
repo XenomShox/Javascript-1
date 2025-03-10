@@ -1,9 +1,9 @@
 /**
- * QuickSelect is an algorithm to find the kth smallest number
+ * [QuickSelect](https://www.geeksforgeeks.org/quickselect-algorithm/) is an algorithm to find the kth smallest number
  *
  * Notes:
  * -QuickSelect is related to QuickSort, thus has optimal best and average
- *  case (O(n)) but unlikely poor worst case (O(n^2))
+ * -case (O(n)) but unlikely poor worst case (O(n^2))
  * -This implementation uses randomly selected pivots for better performance
  *
  * @complexity: O(n) (on average )
@@ -11,16 +11,15 @@
  * @flow
  */
 
-function QuickSelect (items, kth) {
+function QuickSelect(items, kth) {
+  if (kth < 1 || kth > items.length) {
+    throw new RangeError('Index Out of Bound')
+  }
+
   return RandomizedSelect(items, 0, items.length - 1, kth)
 }
 
-function RandomizedSelect (
-  items,
-  left,
-  right,
-  i
-) {
+function RandomizedSelect(items, left, right, i) {
   if (left === right) return items[left]
 
   const pivotIndex = RandomizedPartition(items, left, right)
@@ -32,13 +31,13 @@ function RandomizedSelect (
   return RandomizedSelect(items, pivotIndex + 1, right, i - k)
 }
 
-function RandomizedPartition (items, left, right) {
+function RandomizedPartition(items, left, right) {
   const rand = getRandomInt(left, right)
   Swap(items, rand, right)
   return Partition(items, left, right)
 }
 
-function Partition (items, left, right) {
+function Partition(items, left, right) {
   const x = items[right]
   let pivotIndex = left - 1
 
@@ -54,13 +53,12 @@ function Partition (items, left, right) {
   return pivotIndex + 1
 }
 
-function getRandomInt (min, max) {
+function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
-function Swap (arr, x, y) {
-  [arr[x], arr[y]] = [arr[y], arr[x]]
+function Swap(arr, x, y) {
+  ;[arr[x], arr[y]] = [arr[y], arr[x]]
 }
 
-// testing
-console.log(QuickSelect([1, 4, 2, -2, 4, 5]))
+export { QuickSelect }

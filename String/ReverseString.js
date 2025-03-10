@@ -1,14 +1,7 @@
 /**
- * A short example showing how to reverse a string
- * @flow
+ * A short example showing how to reverse a string.
  */
-
-/**
- * Create a new string and append
- * @complexity O(n)
- */
-
-function ReverseStringIterative (string) {
+function ReverseStringIterative(string) {
   if (typeof string !== 'string') {
     throw new TypeError('The given value is not a string')
   }
@@ -23,27 +16,17 @@ function ReverseStringIterative (string) {
 }
 
 /**
- * JS disallows string mutation so we're actually a bit slower.
  *
- * @complexity: O(n)
+ * @author dev-madhurendra
+ * Reverses a number by converting it to a string.
  *
- * 'some' -> 'eoms' -> 'emos'
+ * @param {string} str - The number to reverse.
+ * @returns {string} The reversed number.
+ *
+ * @example
+ * const reversed = reverseString("hello"); // Returns olleh
  */
 
-function ReverseStringIterativeInplace (string) {
-  if (typeof string !== 'string') {
-    throw new TypeError('The given value is not a string')
-  }
-  const _string = string.split('')
-
-  for (let i = 0; i < Math.floor(_string.length / 2); i++) {
-    const first = _string[i]
-    const second = _string[_string.length - 1 - i]
-    _string[i] = second
-    _string[_string.length - 1 - i] = first
-  }
-
-  return _string.join('')
-}
+const ReverseStringIterativeInplace = (str) => [...str].reverse().join('')
 
 export { ReverseStringIterative, ReverseStringIterativeInplace }

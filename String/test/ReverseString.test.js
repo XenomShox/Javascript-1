@@ -5,59 +5,47 @@ import {
 
 describe('ReverseStringIterative', () => {
   it('expects to reverse a simple string', () => {
-    const SUT = ReverseStringIterative('reverse')
-    expect(SUT).toEqual('esrever')
+    expect(ReverseStringIterative('reverse')).toEqual('esrever')
+    expect(ReverseStringIterative('some')).toEqual('emos')
+    expect(ReverseStringIterative('string')).toEqual('gnirts')
+    expect(ReverseStringIterative('The Algorithms Javascript')).toEqual(
+      'tpircsavaJ smhtiroglA ehT'
+    )
   })
+
   it('expects to reverse a string with spaces in between', () => {
-    const SUT = ReverseStringIterative('reverse me')
-    expect(SUT).toEqual('em esrever')
+    expect(ReverseStringIterative('reverse me')).toEqual('em esrever')
   })
+
   it('expects to reverse a simple string without capitalizing the first letter', () => {
-    const SUT = ReverseStringIterative('Javascript')
-    expect(SUT).toEqual('tpircsavaJ')
+    expect(ReverseStringIterative('Javascript')).toEqual('tpircsavaJ')
   })
+
   it.each`
     input
     ${123456}
     ${[1, 2, 3, 4, 5, 6]}
     ${{ test: 'test' }}
+    ${null}
   `(
     'expects to throw a type error given a value that is $input',
     ({ input }) => {
-      expect(() => {
-        ReverseStringIterative(input)
-      }).toThrow('The given value is not a string')
+      expect(() => ReverseStringIterative(input)).toThrow(
+        'The given value is not a string'
+      )
     }
   )
+
   it('expects to return a empty string with an empty string is given', () => {
-    const SUT = ReverseStringIterative('')
-    expect(SUT).toEqual('')
+    expect(ReverseStringIterative('')).toEqual('')
   })
 })
+
 describe('ReverseStringIterativeInplace', () => {
-  it('expects to reverse a simple string', () => {
-    const SUT = ReverseStringIterativeInplace('reverse')
-    expect(SUT).toEqual('esrever')
+  it.each([
+    ['hello', 'olleh'],
+    ['word', 'drow']
+  ])('reverse of %s is %s', (value, expected) => {
+    expect(ReverseStringIterativeInplace(value)).toBe(expected)
   })
-  it('expects to reverse a simple string without capitalizing the first letter', () => {
-    const SUT = ReverseStringIterativeInplace('Javascript')
-    expect(SUT).toEqual('tpircsavaJ')
-  })
-  it('expects to return an empty string given an empty string', () => {
-    const SUT = ReverseStringIterativeInplace('Javascript')
-    expect(SUT).toEqual('tpircsavaJ')
-  })
-  it.each`
-    input
-    ${123456}
-    ${[1, 2, 3, 4, 5, 6]}
-    ${{ test: 'test' }}
-  `(
-    'expects to throw a type error given a value that is $input',
-    ({ input }) => {
-      expect(() => {
-        ReverseStringIterativeInplace(input)
-      }).toThrow('The given value is not a string')
-    }
-  )
 })

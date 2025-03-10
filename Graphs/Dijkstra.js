@@ -2,11 +2,11 @@
  * Author: Samarth Jain
  * Dijkstra's Algorithm implementation in JavaScript
  * Dijkstra's Algorithm calculates the minimum distance between two nodes.
- * It is used to find the shortes path.
+ * It is used to find the shortest path.
  * It uses graph data structure.
  */
 
-function createGraph (V, E) {
+function createGraph(V, E) {
   // V - Number of vertices in graph
   // E - Number of edges in graph (u,v,w)
   const adjList = [] // Adjacency list
@@ -20,7 +20,7 @@ function createGraph (V, E) {
   return adjList
 }
 
-function djikstra (graph, V, src) {
+function djikstra(graph, V, src) {
   const vis = Array(V).fill(0)
   const dist = []
   for (let i = 0; i < V; i++) dist.push([10000, -1])
@@ -47,30 +47,30 @@ function djikstra (graph, V, src) {
   return dist
 }
 
-const V = 9
-const E = [
-  [0, 1, 4],
-  [0, 7, 8],
-  [1, 7, 11],
-  [1, 2, 8],
-  [7, 8, 7],
-  [6, 7, 1],
-  [2, 8, 2],
-  [6, 8, 6],
-  [5, 6, 2],
-  [2, 5, 4],
-  [2, 3, 7],
-  [3, 5, 14],
-  [3, 4, 9],
-  [4, 5, 10]
-]
+export { createGraph, djikstra }
 
-const graph = createGraph(V, E)
-const distances = djikstra(graph, V, 0)
+// const V = 9
+// const E = [
+//   [0, 1, 4],
+//   [0, 7, 8],
+//   [1, 7, 11],
+//   [1, 2, 8],
+//   [7, 8, 7],
+//   [6, 7, 1],
+//   [2, 8, 2],
+//   [6, 8, 6],
+//   [5, 6, 2],
+//   [2, 5, 4],
+//   [2, 3, 7],
+//   [3, 5, 14],
+//   [3, 4, 9],
+//   [4, 5, 10]
+// ]
+
+// const graph = createGraph(V, E)
+// const distances = djikstra(graph, V, 0)
 
 /**
  * The first value in the array determines the minimum distance and the
  * second value represents the parent node from which the minimum distance has been calculated
  */
-
-console.log(distances)

@@ -1,5 +1,5 @@
 // Wikipedia: https://en.wikipedia.org/wiki/Monte_Carlo_method
-// Video Explaination: https://www.youtube.com/watch?v=ELetCV_wX_c
+// Video Explanation: https://www.youtube.com/watch?v=ELetCV_wX_c
 
 const piEstimation = (iterations = 100000) => {
   let circleCounter = 0
@@ -13,7 +13,7 @@ const piEstimation = (iterations = 100000) => {
     if (radius < 1) circleCounter += 1
   }
 
-  // fomula for pi = (ratio of number inside circle and total iteration) x 4
+  // formula for pi = (ratio of number inside circle and total iteration) x 4
   const pi = (circleCounter / iterations) * 4
   return pi
 }
